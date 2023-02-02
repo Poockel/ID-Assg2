@@ -30,7 +30,7 @@ window.onload = function() {
 
     placeFood();
     document.addEventListener("keyup", changeDirection)
-    setInterval(update, 1000/10);
+    setInterval(update, 1500/10);
 }
 
 function update() {
@@ -68,6 +68,13 @@ function update() {
     if (snakeX < 0 || snakeX > columns * blockSize || snakeY < 0 || snakeY > rows * blockSize) {
         gameOver = true;
         alert("Game Over");
+    }
+
+    for (let i = 0; i < snakeBody.length; i++) {
+        if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
+            gameOver == true;
+            alert("Game Over");
+        }
     }
 }
 
