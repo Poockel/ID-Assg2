@@ -4,6 +4,7 @@ var rows = 20;
 var columns = 20;
 var board;
 var context;
+let score = 0;
 
 //snake head
 var snakeX = blockSize * 5;
@@ -30,7 +31,7 @@ window.onload = function() {
 
     placeFood();
     document.addEventListener("keyup", changeDirection)
-    setInterval(update, 1500/10);
+    setInterval(update, 150);
 }
 
 function update() {
@@ -47,6 +48,8 @@ function update() {
     if (snakeX == foodX && snakeY == foodY) {
         snakeBody.push([foodX, foodY])
         placeFood();
+        score += 1;
+        scoreText.textContent = score;
     }
 
     for (let i = snakeBody.length - 1; i > 0; i--) {
@@ -76,6 +79,8 @@ function update() {
             alert("Game Over");
         }
     }
+    
+    
 }
 
 function changeDirection(e) {
@@ -101,4 +106,3 @@ function placeFood() {
     foodX = Math.floor(Math.random() * columns) * blockSize;
     foodY = Math.floor(Math.random() * rows) * blockSize;
 }
-

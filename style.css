@@ -4,3 +4,13 @@ body {
   font-style: normal;
   text-align: center;
 }
+
+#board {
+  border: 3px solid;
+  /*height: 500px;
+  width: 500px;*/
+}
+
+#scoreText {
+  font-size: 3rem;
+}
